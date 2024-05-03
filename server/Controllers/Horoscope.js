@@ -4,7 +4,9 @@ async function scrapeHoroscope(req, res) {
     try {
     
         const { sign,day } = req.body;
-        const browser = await puppeteer.launch({ headless: true });
+         const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'], // Required args for running on Vercel
+  });
         const page = await browser.newPage();
 
         const url = `https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-${day}.aspx?sign=${sign}`;
