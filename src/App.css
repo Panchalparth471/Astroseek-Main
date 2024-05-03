@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: outfit;
+
+}
+
+
+
+.outfit{
+  font-family: "Outfit", sans-serif;
+
+  font-style: normal;
+}
+
+#wheel{
+ 
+  animation :roundd 30s linear infinite;
+  transform-origin: center center;
+
+
+}
+
+body{
+  overflow-x: hidden;
+}
+
+@keyframes roundd {
+0%{
+  rotate: 0deg;
+}
+100%
+{
+  rotate: 360deg;
+}
+}
+#box{
+  
+  
+  transition:all .5s ease;
+  
+
+}
+
+html{
+  transition: translate .5 ease;
+  overflow-x: hidden;
+}
+
+.place-self-center button {
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 10px;
+}
+
+::-ms-reveal{
+  display: none;
+}
+
+
+.spinner {
+   width: 56px;
+   height: 56px;
+   border-radius: 50%;
+   border: 9px solid;
+   border-color: #dbdcef;
+   border-right-color: #ff8a00;
+   animation: spinner-d3wgkg 1s infinite linear;
+}
+
+@keyframes spinner-d3wgkg {
+   to {
+      transform: rotate(1turn);
+   }
+}

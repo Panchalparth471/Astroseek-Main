@@ -1,0 +1,5 @@
+# Write your code here
+a = list(int(input("Enter x and y ")))
+b= list(int(input("Enter p and q ")))
+distance = (a[0] - b[0])^2 + (a[1] +b [1])^2;
+print(distance)
