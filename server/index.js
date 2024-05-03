@@ -15,7 +15,10 @@ app.use(fileUpload({
 }))
 
 app.use(
-    cors()
+    cors({
+    origin: "https://astroseek.vercel.app",
+    credentials: true
+  })
 )
 
 app.use(express.json());
