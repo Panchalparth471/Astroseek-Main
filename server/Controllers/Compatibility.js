@@ -4,7 +4,6 @@ async function scrapeCompatibility(req, res) {
     try {
     
         const { sign1,sign2 } = req.body;
-        await page.setDefaultNavigationTimeout(0)
   const browser = await puppeteer.launch({
     args: [
       "--disable-setuid-sandbox",
@@ -18,6 +17,7 @@ async function scrapeCompatibility(req, res) {
         : puppeteer.executablePath(),
   });
         const page = await browser.newPage();
+        await page.setDefaultNavigationTimeout(0)
 
         const url = `https://www.horoscope.com/us/games/compatibility/game-love-compatibility.aspx?ZodiacSignSelector_alphastring=${sign1}&PartnerZodiacSignSelector_alphastring=${sign2}`;
         await page.goto(url);
