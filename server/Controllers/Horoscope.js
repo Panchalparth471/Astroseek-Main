@@ -4,7 +4,18 @@ async function scrapeHoroscope(req, res) {
     try {
     
         const { sign,day } = req.body;
-      const browser = await puppeteer.launch({ headless: true });
+       const browser = await puppeteer.launch({
+    args: [
+      "--disable-setuid-sandbox",
+      "--no-sandbox",
+      "--single-process",
+      "--no-zygote",
+    ],
+    executablePath:
+      process.env.NODE_ENV === "production"
+        ? process.env.PUPPETEER_EXECUTABLE_PATH
+        : puppeteer.executablePath(),
+  });
         const page = await browser.newPage();
 
         const url = `https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-${day}.aspx?sign=${sign}`;
