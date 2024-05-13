@@ -4,7 +4,11 @@ async function scrapeHoroscope(req, res) {
     try {
     
         const { sign,day } = req.body;
-      const browser = await puppeteer.launch({executablePath: '/path/to/Chrome'});
+       const browser = await puppeteer.launch({
+      executablePath: '/path/to/Chrome', // Replace with the actual path to Chrome
+      headless: false, // Run in non-headless mode
+      devtools: true, // Enable DevTools
+    });
         const page = await browser.newPage();
 
         const url = `https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-${day}.aspx?sign=${sign}`;
