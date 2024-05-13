@@ -4,11 +4,7 @@ async function scrapeCompatibility(req, res) {
     try {
     
         const { sign1,sign2 } = req.body;
-  const browser = await puppeteer.launch({
-      executablePath: '/path/to/Chrome', // Replace with the actual path to Chrome
-      headless: false, // Run in non-headless mode
-      devtools: true, // Enable DevTools
-    });
+  const browser = await puppeteer.launch({ headless: true });
         const page = await browser.newPage();
 
         const url = `https://www.horoscope.com/us/games/compatibility/game-love-compatibility.aspx?ZodiacSignSelector_alphastring=${sign1}&PartnerZodiacSignSelector_alphastring=${sign2}`;
