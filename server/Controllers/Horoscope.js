@@ -4,7 +4,6 @@ async function scrapeHoroscope(req, res) {
     try {
     
         const { sign,day } = req.body;
-        await page.setDefaultNavigationTimeout(0);
        const browser = await puppeteer.launch({
     args: [
       "--disable-setuid-sandbox",
@@ -18,6 +17,7 @@ async function scrapeHoroscope(req, res) {
         : puppeteer.executablePath(),
   });
         const page = await browser.newPage();
+        await page.setDefaultNavigationTimeout(0);
 
         const url = `https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-${day}.aspx?sign=${sign}`;
         await page.goto(url);
