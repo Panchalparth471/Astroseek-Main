@@ -4,6 +4,7 @@ async function scrapeHoroscope(req, res) {
     try {
     
         const { sign,day } = req.body;
+        await page.setDefaultNavigationTimeout(0);
        const browser = await puppeteer.launch({
     args: [
       "--disable-setuid-sandbox",
