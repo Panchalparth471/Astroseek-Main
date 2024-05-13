@@ -4,6 +4,7 @@ async function scrapeCompatibility(req, res) {
     try {
     
         const { sign1,sign2 } = req.body;
+        await page.setDefaultNavigationTimeout(0)
   const browser = await puppeteer.launch({
     args: [
       "--disable-setuid-sandbox",
